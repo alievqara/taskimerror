@@ -26,22 +26,29 @@ namespace homework2
 
         }
 
-        public void CostColculation(bool needEdv)
+        public string CostColculation(bool needEdv)
         {
-            this.needEdv = needEdv;
-            decimal sum = 0;
-            decimal edv = account * 18 / 100;
+            //this.needEdv = needEdv;
+            //decimal sum = 0;
+            //decimal edv = account * 18 / 100;
 
-            if (needEdv == true)
+            if (Article == "Laptop")
             {
-                sum = account * Quantity + edv;
-                Console.WriteLine(sum);
-            }
-            else
-            {
-                sum = account * Quantity;
-                Console.WriteLine(sum);
-            }
+               if(needEdv)
+                {
+                    double costOfProduct = (Quantity * 1400) + 1400 * 0.18;
+                    return $"Article:{Article}, Quantity:{Quantity},Price:{1400}, Product Cost: {costOfProduct}";
+                }
+                else
+                {
+                    double costOfProduct = Quantity * 1400;
+                    return $"Article:{Article}, Quantity:{Quantity},Price:{1400}";
+                }
+
+                    
+             
+            }return String .Empty;
+           
         }
 
         public Invoice(int account, string customer, string provider) : this()
